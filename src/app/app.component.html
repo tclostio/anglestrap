@@ -10,10 +10,10 @@
     <mat-icon>more_vert</mat-icon>
   </button>
   <mat-menu #menu="matMenu">
-    <button mat-menu-item>
+    <a mat-menu-item [routerLink]="['/login']">
       <mat-icon>account_box</mat-icon>
-      <span>Logout</span>
-    </button>
+      Login
+    </a>
     <button mat-menu-item>
       <mat-icon>notifications_off</mat-icon>
       <span>Disable alerts</span>
