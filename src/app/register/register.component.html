@@ -1,0 +1,57 @@
+<mat-card class="register-card">
+  <mat-card-header class="register-content">
+    <mat-card-title class="register-content">Register</mat-card-title>
+  </mat-card-header>
+  <mat-card-content class="register-content">
+    <form class="register-form">
+      <table class="example-full-width" cellspacing="0">
+        <tr>
+          <td>
+            <mat-form-field class="example-full-width">
+              <input matInput placeholder="Username"
+                     id="username"
+                     name="username"
+                     [(ngModel)]="input.username" required>
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <mat-form-field class="example-full-width">
+              <input matInput placeholder="Email"
+                     id="email"
+                     name="email"
+                     [(ngModel)]="input.email" required>
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+        <td>
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="Password"
+                   [(ngModel)]="input.password"
+                   id="password"
+                   type="password"
+                   name="password" required>
+          </mat-form-field>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="Verify Password"
+                   [(ngModel)]="input.passVerify"
+                   id="passVerify"
+                   type="password"
+                   name="passVerify" required>
+          </mat-form-field>
+        </td>
+      </tr>
+      </table>
+      <mat-card-actions>
+        <button mat-raised-button type="submit" (click)="tryRegister()" color="primary">Register</button>
+      </mat-card-actions>
+    </form>
+    <a [routerLink]="['/login']">Login</a>
+  </mat-card-content>
+</mat-card>
