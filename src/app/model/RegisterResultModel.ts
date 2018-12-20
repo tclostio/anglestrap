@@ -1,4 +1,4 @@
-export interface LoginResultModel {
+export interface RegisterResultModel {
   token: string;
   error: string;
 }

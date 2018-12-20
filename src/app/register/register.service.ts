@@ -1,22 +1,33 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { RegisterResultModel } from '../model/RegisterResultModel';
 import 'rxjs/operators';
 import {map} from 'rxjs/operators';
+import {UserService} from '../user/user.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class RegisterService {
 
-  constructor(private http: HttpClient, private router: Router) { }
+  constructor(private http: HttpClient, private user: UserService, private router: Router) { }
 
-  public register(input) {
-    if (input.email && input.password) {
-      this.http.post('https://reqres.in/api/register', JSON.stringify(input))
-        .pipe(map(result => result))
-        .subscribe(result => {
-          this.router.navigate(['/login']);
+  public register(username: string, email: string, password: string) {
+    if (username && email && password) {
+      this.http.post<RegisterResultModel>('https://reqres.in/api/register', {
+        username: username,
+        email: email,
+        password: password
+      }).subscribe(
+        request => {
+          if (request.token) {
+            this.user.setToken(request.token);
+            this.router.navigateByUrl('/login');
+          }
+        },
+        request => {
+          alert(request.error.error);
         });
     }
   }
