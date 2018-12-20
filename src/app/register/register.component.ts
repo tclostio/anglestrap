@@ -22,7 +22,9 @@ export class RegisterComponent implements OnInit {
   tryRegister() {
     if (this.input.password === this.input.passVerify) {
       if (this.input) {
-        this.register.register(this.input);
+        this.register.register(this.input.username,
+          this.input.email,
+          this.input.password);
       }
     } else {
       alert('Non-matching passwords. Try again.');
