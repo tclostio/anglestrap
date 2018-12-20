@@ -12,6 +12,7 @@ import { RegisterComponent } from './register/register.component';
 import { ProfilesComponent } from './profiles/profiles.component';
 import { ProfileComponent } from './profile/profile.component';
 import {CustomMaterialModule} from './core/material.module';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import {CustomMaterialModule} from './core/material.module';
     LoginComponent,
     RegisterComponent,
     ProfilesComponent,
-    ProfileComponent
+    ProfileComponent,
+    HomeComponent
   ],
   imports: [
     BrowserAnimationsModule,
